@@ -1,6 +1,6 @@
 ﻿namespace FischotterFinanceManager.Entities;
 
-public class NamedEntity
+public class NamedEntity : BaseEntity
 {
     #region properties
 
@@ -36,7 +36,7 @@ public class NamedEntity
 
     #region ctor
 
-    public NamedEntity(string title, string description)
+    public NamedEntity(Guid id, string title, string description) : base(id)
     {
         Title = title;
         Description = description;
