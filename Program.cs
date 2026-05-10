@@ -1,0 +1,1 @@
+﻿Console.WriteLine("Fischotter Finance Manager! :D");
