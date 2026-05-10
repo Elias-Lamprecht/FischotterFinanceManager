@@ -1,10 +1,10 @@
 ﻿namespace FischotterFinanceManager.Entities;
 
-public class BaseEntity
+public class BaseEntity(Guid Id)
 {
     #region properties
 
-    public Guid Id { get; init; }
+    public Guid Id { get; init; } = Id;
 
     #endregion properties
 }
