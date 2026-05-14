@@ -1,4 +1,5 @@
-﻿using Spectre.Console;
+﻿using FischotterFinanceManager.UI.Services;
+using Spectre.Console;
 
 namespace FischotterFinanceManager.UI.Components;
 
@@ -27,9 +28,7 @@ public class Menu()
     /// Displays all menu options.
     /// </summary>
     public MenuItem AskUserForMenuOption()
-    {
-        DisplayHeader();
-
+    { 
         var prompt = new SelectionPrompt<MenuItem>()
             .Title("Menu Choices:")
             .PageSize(10)
@@ -42,8 +41,8 @@ public class Menu()
             .UseConverter(menuItem => $"{menuItem.Label}")
             .AddChoiceGroup(new MenuItem("Account Options", null), new[]
             {
-                new MenuItem("Create Account", CreateAccount),
-                new MenuItem("Delete Account", DeleteAccount)
+                new MenuItem("Create Account", MenuService.CreateAccount),
+                new MenuItem("Delete Account", MenuService.DeleteAccount)
             });
 
         var entry = AnsiConsole.Prompt(prompt);
@@ -61,10 +60,6 @@ public class Menu()
 
         AnsiConsole.Write(headerText);
     }
-
-    public void CreateAccount() { }
-
-    public void DeleteAccount() { }
 
     #endregion methods
 }
