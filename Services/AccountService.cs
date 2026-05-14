@@ -10,6 +10,22 @@ public class AccountService
 
     #endregion properties
 
+    #region singleton
+
+    private static AccountService? _instance;
+
+    public static AccountService Instance()
+    {
+        if (_instance == null)
+        {
+            _instance = new AccountService();
+        }
+
+        return _instance;
+    }
+
+    #endregion singleton
+
     #region methods
 
     public Account CreateAccount(Guid id, string title, string description)
