@@ -10,6 +10,22 @@ public class PaymentService
 
     #endregion properties
 
+    #region singleton
+
+    private static PaymentService? _instance;
+
+    public static PaymentService Instance()
+    {
+        if (_instance == null)
+        {
+            _instance = new PaymentService();
+        }
+
+        return _instance;
+    }
+
+    #endregion singleton
+
     #region methods
 
     public Payment CreatePayment(Guid id, string title, string description, decimal amount)
